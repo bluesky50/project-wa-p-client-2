@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SessionListItem, { ISessionListItemProps } from '../components/SessionListItem/SessionListItem';
+import SessionListItem, { ISessionListProps } from '../components/SessionListItem/SessionListItem';
 
 describe('SessionListItem', () => {
 	let props: ISessionListItemProps;
