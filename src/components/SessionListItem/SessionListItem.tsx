@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 
 export interface ISessionListItemProps {
-	title: string;
-	description: string;
+	session: any;
+	selectSession: (sessionId: string) => void;
 }
 
 export default class SessionListItem extends Component<ISessionListItemProps, {}> {
+	constructor(props: ISessionListItemProps) {
+		super(props);
+
+		this.onClick = this.onClick.bind(this);
+	}
+
+	onClick() {
+		this.props.selectSession(this.props.session.id);
+	}
+
 	render() {
-		const { title, description } = this.props;
+		const { session } = this.props;
+		const { title, description } = session;
 		return (
-			<div className="session-list-item">
-				<h3 className="session-list-item__title">{title}</h3>
-				<p className="session-list-item__desc">{description}</p>
+			<div className="session-list-item" onClick={this.onClick}>
+				<h3 className="session-list-item__detail">{title}</h3>
+				<p className="session-list-item__detail">{description}</p>
 			</div>
 		);
 	}
